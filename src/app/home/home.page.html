@@ -1,20 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-      Blank
+      Ionic Training
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card *ngFor="let repo of userRepo; let i = index">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-header>
+      <ion-card-subtitle style="text-align: center; font-size: 20px;color: rgb(201, 201, 201);">{{repo.name}}</ion-card-subtitle>
+      <br>
+      <div style="box-sizing:border-box">
+        
+        <section style="float:left; width: 50%;text-align: center;"><ion-icon name="eye"></ion-icon>   Watchers: {{repo.watchers}}</section>
+        <section style="text-align: center;"><ion-icon name="star"></ion-icon>   Stars: {{repo.stargazers_count}}</section>
+        <section style="text-align: center;padding-top: 15px;">Open Issues: {{repo.open_issues_count}}</section>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      {{repo.description}}
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
