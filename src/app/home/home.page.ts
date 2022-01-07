@@ -60,7 +60,6 @@ export class HomePage {
       this.userInfo = res
       this.http.get(`https://api.github.com/users/${this.userInfo.login}/repos`,{headers: this.headers}).subscribe(result => {
         this.userRepo = result
-        console.log(result)
       })
     })
      
